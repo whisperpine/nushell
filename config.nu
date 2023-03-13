@@ -657,7 +657,7 @@ alias vim = nvim
 # wasm-pack is for rust wasm building pipeline
 alias wp = wasm-pack
 
-def proxy [parameter] {
+def proxy [parameter = "help"] {
   # let proxy_file_path = ($nu.home-path | path join "ShellScripts/proxy.sh")
   let proxy_file_path = ($nu.config-path | path dirname | path join "shell_scripts/proxy.sh")
   sh $proxy_file_path $parameter

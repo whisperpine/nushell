@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 # Setup proxy in CLI
 
 BASEDIR=$(dirname "$0")
 CUSTOM_FILE=$BASEDIR/custom.sh
 
-source $CUSTOM_FILE
+. $CUSTOM_FILE
 
 if [ -z $PORT ]; then
     echo "\$PORT is null"
@@ -13,7 +13,24 @@ if [ -z $PORT ]; then
     exit 1
 fi
 
-PROXY_HTTP="http://localhost:${PORT}"
+if [ -z $WSL_SUPPORT ]; then
+    HOST_IP="localhost"
+else
+    if [ $WSL_SUPPORT = false ]; then
+        HOST_IP="localhost"
+    elif [ $WSL_SUPPORT = true ]; then
+        HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+    else
+        echo "\$WSL_SUPPORT should be either 0 or 1"
+        exit 1
+    fi
+fi
+
+if [ -z $HOST_IP ]; then
+    exit 1
+fi
+
+PROXY_HTTP="http://${HOST_IP}:${PORT}"
 
 set_proxy() {
     export all_proxy="${PROXY_HTTP}"
@@ -48,12 +65,15 @@ check_status() {
 }
 
 help_msg() {
-    echo "Please set alias 'proxy' in advance."
+    echo
+    echo "proxy.sh can be used to setup proxy in CLI"
+    echo
     echo "Suported arguments:"
     echo "  set     setup proxy and check status"
     echo "  unset   unset proxy"
     echo "  status  check whether proxy is setup"
     echo "  help    print help message"
+    echo
 }
 
 if [ "$1" = "set" ]; then
