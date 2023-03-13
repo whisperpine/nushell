@@ -1,0 +1,3 @@
+# Config nushell script format style
+[*.nu]
+indent_size = 2

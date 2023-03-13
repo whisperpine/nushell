@@ -1,0 +1,267 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+line_break.disabled = true
+
+[character]
+success_symbol = '[\$](default)'
+error_symbol = '[\$](red)'
+vimcmd_symbol = '[\$](default)'
+
+[directory]
+read_only = " ro"
+
+[battery]
+full_symbol = "• "
+charging_symbol = "⇡ "
+discharging_symbol = "⇣ "
+unknown_symbol = "❓ "
+empty_symbol = "❗ "
+
+[git_commit]
+tag_symbol = " tag "
+
+[git_status]
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
+[aws]
+symbol = "aws "
+format = "[$symbol]($style)"
+
+[bun]
+symbol = "bun "
+format = "[$symbol]($style)"
+
+[c]
+symbol = "C "
+format = "[$symbol]($style)"
+
+[cobol]
+symbol = "cobol "
+format = "[$symbol]($style)"
+
+[conda]
+symbol = "conda "
+format = "[$symbol]($style)"
+
+[crystal]
+symbol = "cr "
+format = "[$symbol]($style)"
+
+[cmake]
+symbol = "cmake "
+format = "[$symbol]($style)"
+
+[daml]
+symbol = "daml "
+format = "[$symbol]($style)"
+
+[dart]
+symbol = "dart "
+format = "[$symbol]($style)"
+
+[deno]
+symbol = "deno "
+format = "[$symbol]($style)"
+
+[dotnet]
+symbol = ".NET "
+format = "[$symbol]($style)"
+
+[docker_context]
+symbol = "docker "
+format = "[$symbol]($style)"
+
+[elixir]
+symbol = "exs "
+format = "[$symbol]($style)"
+
+[elm]
+symbol = "elm "
+format = "[$symbol]($style)"
+
+[fennel]
+symbol = "fnl "
+format = "[$symbol]($style)"
+
+[fossil_branch]
+symbol = "fossil "
+format = "[$symbol]($style)"
+
+[git_branch]
+symbol = ""
+
+[golang]
+symbol = "go "
+format = "[$symbol]($style)"
+
+[gradle]
+symbol = "gradle "
+format = "[$symbol]($style)"
+
+[guix_shell]
+symbol = "guix "
+format = "[$symbol]($style)"
+
+[hg_branch]
+symbol = "hg "
+format = "[$symbol]($style)"
+
+[java]
+symbol = "java "
+format = "[$symbol]($style)"
+
+[julia]
+symbol = "jl "
+format = "[$symbol]($style)"
+
+[kotlin]
+symbol = "kt "
+format = "[$symbol]($style)"
+
+[lua]
+symbol = "lua "
+format = "[$symbol]($style)"
+
+[nodejs]
+symbol = "nodejs "
+format = "[$symbol]($style)"
+disabled = true
+
+[memory_usage]
+symbol = "memory "
+format = "[$symbol]($style)"
+
+[meson]
+symbol = "meson "
+format = "[$symbol]($style)"
+
+[nim]
+symbol = "nim "
+format = "[$symbol]($style)"
+
+[nix_shell]
+symbol = "nix "
+format = "[$symbol]($style)"
+
+[ocaml]
+symbol = "ml "
+format = "[$symbol]($style)"
+
+[opa]
+symbol = "opa "
+format = "[$symbol]($style)"
+
+[os.symbols]
+Alpine = "alp "
+Amazon = "amz "
+Android = "andr "
+Arch = "rch "
+CentOS = "cent "
+Debian = "deb "
+DragonFly = "dfbsd "
+Emscripten = "emsc "
+EndeavourOS = "ndev "
+Fedora = "fed "
+FreeBSD = "fbsd "
+Garuda = "garu "
+Gentoo = "gent "
+HardenedBSD = "hbsd "
+Illumos = "lum "
+Linux = "lnx "
+Macos = "mac "
+Manjaro = "mjo "
+Mariner = "mrn "
+MidnightBSD = "mid "
+Mint = "mint "
+NetBSD = "nbsd "
+NixOS = "nix "
+OpenBSD = "obsd "
+OpenCloudOS = "ocos "
+openEuler = "oeul "
+openSUSE = "osuse "
+OracleLinux = "orac "
+Pop = "pop "
+Raspbian = "rasp "
+Redhat = "rhl "
+RedHatEnterprise = "rhel "
+Redox = "redox "
+Solus = "sol "
+SUSE = "suse "
+Ubuntu = "ubnt "
+Unknown = "unk "
+Windows = "win "
+
+[package]
+disabled = true
+format = "[$symbol]($style)"
+
+[perl]
+symbol = "pl "
+format = "[$symbol]($style)"
+
+[php]
+symbol = "php "
+format = "[$symbol]($style)"
+
+[pijul_channel]
+symbol = "pijul "
+format = "[$symbol]($style)"
+
+[pulumi]
+symbol = "pulumi "
+format = "[$symbol]($style)"
+
+[purescript]
+symbol = "purs "
+format = "[$symbol]($style)"
+
+[python]
+symbol = "py "
+format = "[$symbol]($style)"
+
+[raku]
+symbol = "raku "
+format = "[$symbol]($style)"
+
+[ruby]
+symbol = "rb "
+format = "[$symbol]($style)"
+
+[rust]
+symbol = "rs "
+format = "[$symbol]($style)"
+
+[scala]
+symbol = "scala "
+format = "[$symbol]($style)"
+
+[spack]
+symbol = "spack "
+format = "[$symbol]($style)"
+
+[status]
+symbol = "[x](bold red) "
+format = "[$symbol]($style)"
+
+[sudo]
+symbol = "sudo "
+format = "[$symbol]($style)"
+
+[swift]
+symbol = "swift "
+format = "[$symbol]($style)"
+
+[terraform]
+symbol = "terraform "
+format = "[$symbol]($style)"
+
+[zig]
+symbol = "zig "
+format = "[$symbol]($style)"
