@@ -14,11 +14,7 @@ vimcmd_symbol = '[\$](default)'
 read_only = " ro"
 
 [battery]
-full_symbol = "• "
-charging_symbol = "⇡ "
-discharging_symbol = "⇣ "
-unknown_symbol = "❓ "
-empty_symbol = "❗ "
+disabled = true
 
 [git_commit]
 tag_symbol = " tag "
@@ -199,8 +195,9 @@ Unknown = "unk "
 Windows = "win "
 
 [package]
+symbol = "pkg "
+format = "[$version]($style) "
 disabled = true
-format = "[$symbol]($style)"
 
 [perl]
 symbol = "pl "
