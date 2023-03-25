@@ -7,7 +7,7 @@ CUSTOM_FILE=$BASEDIR/custom.sh
 
 # import custom.sh,
 # which is ignored by git and expected to create on your own.
-. $CUSTOM_FILE
+. "$CUSTOM_FILE"
 
 # PORT should be set in custom.sh
 if [ -z $PORT ]; then
