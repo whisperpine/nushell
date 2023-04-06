@@ -136,7 +136,7 @@ let dark_theme = {
     empty: blue
     # Closures can be used to choose colors for specific values.
     # The value (in this case, a bool) is piped into the closure.
-    bool: { if $in { 'light_cyan' } else { 'light_gray' } }
+    bool: { || if $in { 'light_cyan' } else { 'light_gray' } }
     int: white
     filesize: {|e|
       if $e == 0b {
@@ -146,7 +146,7 @@ let dark_theme = {
       } else { 'blue' }
     }
     duration: white
-    date: { (date now) - $in |
+    date: { || (date now) - $in |
       if $in < 1hr {
         '#e61919'
       } else if $in < 6hr {
@@ -217,7 +217,7 @@ let light_theme = {
     empty: blue
     # Closures can be used to choose colors for specific values.
     # The value (in this case, a bool) is piped into the closure.
-    bool: { if $in { 'dark_cyan' } else { 'dark_gray' } }
+    bool: { || if $in { 'dark_cyan' } else { 'dark_gray' } }
     int: dark_gray
     filesize: {|e|
       if $e == 0b {
@@ -227,7 +227,7 @@ let light_theme = {
       } else { 'blue_bold' }
     }
     duration: dark_gray
-  date: { (date now) - $in |
+  date: { || (date now) - $in |
     if $in < 1hr {
       'red3b'
     } else if $in < 6hr {
@@ -412,10 +412,10 @@ let-env config = {
   render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
 
   hooks: {
-    pre_prompt: [{
+    pre_prompt: [{ ||
       null  # replace with source code to run before the prompt is shown
     }]
-    pre_execution: [{
+    pre_execution: [{ ||
       null  # replace with source code to run before the repl input is run
     }]
     env_change: {
@@ -423,7 +423,7 @@ let-env config = {
         null  # replace with source code to run if the PWD environment is different since the last repl input
       }]
     }
-    display_output: {
+    display_output: { ||
       if (term size).columns >= 100 { table -e } else { table }
     }
   }
@@ -658,10 +658,36 @@ alias vim = nvim
 alias wp = wasm-pack
 
 def proxy [parameter = "help"] {
-  # let proxy_file_path = ($nu.home-path | path join "ShellScripts/proxy.sh")
   let proxy_file_path = ($nu.config-path | path dirname | path join "shell_scripts/proxy.sh")
   sh $proxy_file_path $parameter
 }
 
+# ----------------------------------------
 # Starship (https://starship.rs)
-source ~/.cache/starship/init.nu
+# ----------------------------------------
+
+# source ~/.cache/starship/init.nu
+
+let-env STARSHIP_SHELL = "nu"
+let-env STARSHIP_SESSION_KEY = (random chars -l 16)
+let-env PROMPT_MULTILINE_INDICATOR = (starship prompt --continuation)
+
+let-env PROMPT_INDICATOR = ""
+
+let-env PROMPT_COMMAND = { ||
+    let width = (term size).columns
+    starship prompt $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
+}
+
+let has_config_items = (not ($env | get -i config | is-empty))
+
+let-env config = if $has_config_items {
+    $env.config | upsert render_right_prompt_on_last_line true
+} else {
+    {render_right_prompt_on_last_line: true}
+}
+
+let-env PROMPT_COMMAND_RIGHT = { ||
+    let width = (term size).columns
+    starship prompt --right $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
+}
