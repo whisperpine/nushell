@@ -63,5 +63,5 @@ let-env NU_PLUGIN_DIRS = [
 
 # Starship (https://starship.rs/)
 let-env STARSHIP_CONFIG = ($nu.config-path | path dirname | path join "starship.toml")
-# mkdir ~/.cache/starship
-# starship init nu | save -f ~/.cache/starship/init.nu
+mkdir ~/.cache/starship
+starship init nu | save -f ~/.cache/starship/init.nu
