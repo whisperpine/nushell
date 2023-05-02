@@ -85,6 +85,9 @@ let-env NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
+# Custom configs can be written in this file, including additinal PATH
+source ~/.config/nushell/custom.nu
+
 # Starship (https://starship.rs/)
 let-env STARSHIP_CONFIG = ($nu.config-path | path dirname | path join "starship.toml")
 mkdir ~/.cache/starship
