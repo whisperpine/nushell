@@ -540,31 +540,19 @@ let-env config = {
 }
 
 
-# Take care of this alias
+# take care of this alias
 alias vim = nvim
 
 # wasm-pack is for rust wasm building pipeline
 alias wp = wasm-pack
 
-def proxy [param: string = "help"] {
-  let proxy_file_path = ($nu.config-path | path dirname | path join "shell_scripts/proxy.sh")
-  sh $proxy_file_path $param
-}
-
 # def proxy [param: string = "help"] {
-#   if $param == "git set" {
-#     git config --global http.https://github.com.proxy "${PROXY_HTTP}"
-#     git config --global https.https://github.com.proxy "${PROXY_HTTP}"
-#   }
-    # echo "hello"
-    # if $param == "help" {
-    #   echo "help"
-    # } else if $param == "status" {
-    #   todo
-    # } else {
-    #   todo
-    # }
+#   let proxy_file_path = ($nu.config-path | path dirname | path join "shell_scripts/proxy.sh")
+#   sh $proxy_file_path $param
 # }
+
+# The "proxy" command.
+use mod_proxy.nu proxy
 
 # ----------------------------------------
 # Starship (https://starship.rs)

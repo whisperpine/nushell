@@ -5,29 +5,16 @@
 BASEDIR=$(dirname "$0")
 CUSTOM_FILE=$BASEDIR/custom.sh
 
-# import custom.sh,
-# which is ignored by git and expected to create on your own.
-. "$CUSTOM_FILE"
+PORT=7890
+WSL_SUPPORT=false
 
-# PORT should be set in custom.sh
-if [ -z $PORT ]; then
-    echo "\$PORT is null"
-    echo "\$PORT should be set in $CUSTOM_FILE"
-    exit 1
-fi
-
-# WSL_SUPPORT should be set "true" in custom.sh, if used in WSL
-if [ -z $WSL_SUPPORT ]; then
+if [ $WSL_SUPPORT = false ]; then
     HOST_IP="localhost"
+elif [ $WSL_SUPPORT = true ]; then
+    HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 else
-    if [ $WSL_SUPPORT = false ]; then
-        HOST_IP="localhost"
-    elif [ $WSL_SUPPORT = true ]; then
-        HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-    else
-        echo "\$WSL_SUPPORT should be either 0 or 1"
-        exit 1
-    fi
+    echo "\$WSL_SUPPORT should be either 0 or 1"
+    exit 1
 fi
 
 if [ -z $HOST_IP ]; then
