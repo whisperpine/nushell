@@ -3,11 +3,11 @@
 # Check proxy status.
 def check_staus [] {
   print "Trying to connect to Google..."
-  let response_code = (curl -I -s --connect-timeout 5 -m 5 -w "%{http_code}" -o /dev/null www.google.com)
+  let response_code = (curl -I -s --connect-timeout 2 -m 2 -w "%{http_code}" -o /dev/null www.google.com)
   if $response_code == "200" {
     print "Proxy setup succeeded!"
   } else {
-    print "Proxy setup failed!"
+    print "Proxy setup *** failed ***"
   }
 }
 
