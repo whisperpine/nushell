@@ -24,6 +24,13 @@ export def-env proxy [
     if $git {
       git config --global http.https://github.com.proxy $env.PROXY_HTTP
       git config --global https.https://github.com.proxy $env.PROXY_HTTP
+
+      git config --global http.https://raw.githubusercontent.com.proxy $env.PROXY_HTTP
+      git config --global https.https://raw.githubusercontent.com.proxy $env.PROXY_HTTP
+
+      git config --global http.https://media.githubusercontent.com.proxy $env.PROXY_HTTP
+      git config --global https.https://media.githubusercontent.com.proxy $env.PROXY_HTTP
+
       print "~/.gitconfig has been modified."
     }
     let-env ALL_PROXY = $env.PROXY_HTTP
@@ -34,15 +41,21 @@ export def-env proxy [
     if $git {
       git config --global --unset http.https://github.com.proxy
       git config --global --unset https.https://github.com.proxy
+
+      git config --global --unset http.https://raw.githubusercontent.com.proxy
+      git config --global --unset https.https://raw.githubusercontent.com.proxy
+
+      git config --global --unset http.https://media.githubusercontent.com.proxy
+      git config --global --unset https.https://media.githubusercontent.com.proxy
+
       print "~/.gitconfig has been modified."
     }
     let-env ALL_PROXY = null
     print "Proxy has been closed."
   } else if $param == "status" {
     if $git {
-      print "git http github.com settings:"
+      print "github.com settings:"
       git config --global --get http.https://github.com.proxy | print -n
-      git config --global --get https.https://github.com.proxy | print -n
     }
     check_staus
   } else {
