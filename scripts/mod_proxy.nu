@@ -25,6 +25,9 @@ export def-env proxy [
       git config --global http.https://github.com.proxy $env.PROXY_HTTP
       git config --global https.https://github.com.proxy $env.PROXY_HTTP
 
+      git config --global http.https://lfs.github.com.proxy $env.PROXY_HTTP
+      git config --global https.https://lfs.github.com.proxy $env.PROXY_HTTP
+
       git config --global http.https://raw.githubusercontent.com.proxy $env.PROXY_HTTP
       git config --global https.https://raw.githubusercontent.com.proxy $env.PROXY_HTTP
 
@@ -41,6 +44,9 @@ export def-env proxy [
     if $git {
       git config --global --unset http.https://github.com.proxy
       git config --global --unset https.https://github.com.proxy
+
+      git config --global --unset http.https://lfs.github.com.proxy
+      git config --global --unset https.https://lfs.github.com.proxy
 
       git config --global --unset http.https://raw.githubusercontent.com.proxy
       git config --global --unset https.https://raw.githubusercontent.com.proxy
