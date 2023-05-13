@@ -546,10 +546,9 @@ alias vim = nvim
 # wasm-pack is for rust wasm building pipeline
 alias wp = wasm-pack
 
-# def proxy [param: string = "help"] {
-#   let proxy_file_path = ($nu.config-path | path dirname | path join "shell_scripts/proxy.sh")
-#   sh $proxy_file_path $param
-# }
+# pnpm
+alias pp = pnpm
+
 
 # The "proxy" command.
 use mod_proxy.nu proxy
