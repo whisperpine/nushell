@@ -16,3 +16,6 @@ let-env EDITOR = nvim
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 let-env PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+let-env PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
+let-env PATH = ($env.PATH | split row (char esep) | prepend '~/.local/share/bob/nvim-bin')
+
