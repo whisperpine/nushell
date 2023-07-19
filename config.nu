@@ -549,6 +549,8 @@ alias wp = wasm-pack
 # pnpm
 alias pp = pnpm
 
+# kubectl
+alias kc = kubectl
 
 # The "proxy" command.
 use mod_proxy.nu proxy
