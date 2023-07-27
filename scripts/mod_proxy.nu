@@ -34,7 +34,7 @@ export def-env proxy [
       pnpm config -g set $"https-proxy=($env.PROXY_HTTP)"
       print "pnpm config has been set."
     }
-    let-env ALL_PROXY = $env.PROXY_HTTP
+    $env.ALL_PROXY = $env.PROXY_HTTP
     print "Proxy has been opened."
     print $env.ALL_PROXY
     check_staus
@@ -50,7 +50,7 @@ export def-env proxy [
       pnpm config -g delete https-proxy
       print "pnpm config has been unset."
     }
-    let-env ALL_PROXY = null
+    $env.ALL_PROXY = null
     print "Proxy has been closed."
   } else if $param == "status" {
     if $git {
