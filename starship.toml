@@ -265,3 +265,19 @@ format = "[$symbol]($style)"
 [zig]
 symbol = "zig "
 format = "[$symbol]($style)"
+
+[helm]
+symbol = "helm "
+format = "[$symbol]($style)"
+
+[kubernetes]
+symbol = "kubernets "
+format = "[$symbol]($style)"
+
+[azure]
+symbol = "azure "
+format = "[$symbol]($style)"
+
+[erlang]
+symbol = "erlang "
+format = "[$symbol]($style)"
