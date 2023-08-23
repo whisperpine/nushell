@@ -808,6 +808,11 @@ $env.config = {
     ]
 }
 
+
+# ----------------------------------------
+# aliases
+# ----------------------------------------
+
 # nvim
 alias vim = nvim
 
@@ -820,14 +825,30 @@ alias pp = pnpm
 # kubectl
 alias kc = kubectl
 
+
+# ----------------------------------------
+# custom commands
+# ----------------------------------------
+
 # The "proxy" command
 use proxy-command.nu proxy
 
-# git auto completion
+# ----------------------------------------
+# auto completions
+# ----------------------------------------
+
+# git
 use git-completions.nu *
 
+# cargo
+use cargo-completions.nu *
+
+# scoop
+use scoop-completions.nu *
+
+
 # ----------------------------------------
-# Starship (https://starship.rs)
+# starship (https://starship.rs)
 # ----------------------------------------
 
 # Todo: uncomment the following line after starship updates.
