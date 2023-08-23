@@ -82,7 +82,7 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
 # Custom configs can be written in this file, including additinal PATH
-source-env ~/.config/nushell/custom.nu
+source ~/.config/nushell/custom.nu
 
 # Starship (https://starship.rs/)
 $env.STARSHIP_CONFIG = ($nu.config-path | path dirname | path join "starship.toml")

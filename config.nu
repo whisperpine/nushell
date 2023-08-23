@@ -808,10 +808,10 @@ $env.config = {
     ]
 }
 
-# take care of this alias
+# nvim
 alias vim = nvim
 
-# wasm-pack is for rust wasm building pipeline
+# wasm-pack
 alias wp = wasm-pack
 
 # pnpm
@@ -820,8 +820,11 @@ alias pp = pnpm
 # kubectl
 alias kc = kubectl
 
-# The "proxy" command.
-use mod_proxy.nu proxy
+# The "proxy" command
+use proxy-command.nu proxy
+
+# git auto completion
+use git-completions.nu *
 
 # ----------------------------------------
 # Starship (https://starship.rs)
