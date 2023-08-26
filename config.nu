@@ -838,13 +838,13 @@ use proxy-command.nu proxy
 # ----------------------------------------
 
 # git
-use git-completions.nu *
+# use git-completions.nu *
 
 # cargo
-use cargo-completions.nu *
+# use cargo-completions.nu *
 
 # scoop
-use scoop-completions.nu *
+# use scoop-completions.nu *
 
 
 # ----------------------------------------
