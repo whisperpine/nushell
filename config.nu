@@ -833,6 +833,8 @@ alias kc = kubectl
 # The "proxy" command
 use proxy-command.nu proxy
 
+use punc-command.nu punc
+
 # ----------------------------------------
 # auto completions
 # ----------------------------------------
