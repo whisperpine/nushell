@@ -39,6 +39,13 @@ export def punc [
     | str replace -a ") )" "))"
     | str replace -a ") :" "):"
     | str replace -a ") ;" ");"
+    | str replace -a "\" ." "\"."
+    | str replace -a "\" ," "\","
+    | str replace -a "\" ?" "\"?"
+    | str replace -a "\" !" "\"!"
+    | str replace -a "\" )" "\")"
+    | str replace -a "\" :" "\":"
+    | str replace -a "\" ;" "\";"
 
   # write to target file path
   echo $final_content | save -f $output
