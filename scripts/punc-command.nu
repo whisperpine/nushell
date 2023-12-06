@@ -17,6 +17,8 @@ export def punc [
     | str replace -a "？" "? "
     | str replace -a "“" " \""
     | str replace -a "”" "\" "
+    | str replace -a "「" " \""
+    | str replace -a "」" "\" "
     | str replace -a "《" " \""
     | str replace -a "》" "\" "
     | str replace -a "‘" " '"
