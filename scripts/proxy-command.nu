@@ -16,7 +16,7 @@ def check_staus [] {
 #   set     setup proxy and check status
 #   unset   unset proxy
 #   status  check whether proxy is setup
-export def-env proxy [
+export def --env proxy [
     param?: string #  set, unset, status
     --git (-g) # modify git settings
     --npm # modify npm config
