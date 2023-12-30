@@ -811,16 +811,13 @@ $env.config = {
 
 # nvim
 alias vim = nvim
-
-# wasm-pack
-alias wp = wasm-pack
+alias vi = nvim
 
 # pnpm
 alias pp = pnpm
 
 # kubectl
 alias kc = kubectl
-
 
 # ----------------------------------------
 # custom commands
@@ -832,53 +829,7 @@ use proxy-command.nu proxy
 use punc-command.nu punc
 
 # ----------------------------------------
-# auto completions
-# ----------------------------------------
-
-# git
-# use git-completions.nu *
-
-# cargo
-# use cargo-completions.nu *
-
-# scoop
-# use scoop-completions.nu *
-
-
-# ----------------------------------------
 # starship (https://starship.rs)
 # ----------------------------------------
 
-# Todo: uncomment the following line after starship updates.
 source ~/.cache/starship/init.nu
-
-# --------- comment this part after starship updates --------- #
-
-# $env.STARSHIP_SHELL = "nu"
-# $env.STARSHIP_SESSION_KEY = (random chars -l 16)
-# $env.PROMPT_MULTILINE_INDICATOR = (^'starship' prompt --continuation)
-
-# # Does not play well with default character module.
-# $env.PROMPT_INDICATOR = ""
-
-# $env.PROMPT_COMMAND = { ||
-#     # jobs are not supported
-#     let width = (term size).columns
-#     ^'starship' prompt $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
-# }
-
-# # Whether we have config items
-# let has_config_items = (not ($env | get -i config | is-empty))
-
-# $env.config = if $has_config_items {
-#     $env.config | upsert render_right_prompt_on_last_line true
-# } else {
-#     {render_right_prompt_on_last_line: true}
-# }
-
-# $env.PROMPT_COMMAND_RIGHT = { ||
-#     let width = (term size).columns
-#     ^'starship' prompt --right $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
-# }
-
-# --------- comment this part after starship updates --------- #

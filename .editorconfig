@@ -1,3 +1,7 @@
-# Config nushell script format style
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+
 [*.nu]
 indent_size = 2
