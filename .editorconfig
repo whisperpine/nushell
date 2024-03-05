@@ -2,6 +2,7 @@
 indent_style = space
 end_of_line = lf
 charset = utf-8
+insert_final_newline = true
 
 [*.nu]
 indent_size = 2

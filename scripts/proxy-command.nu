@@ -1,7 +1,7 @@
 # Module to setup proxy.
 
 # Check proxy status.
-def check_staus [] {
+def check_status [] {
   print "Trying to connect to Google..."
   let response_code = (curl -I -s --connect-timeout 2 -m 2 -w "%{http_code}" -o /dev/null www.google.com)
   if $response_code == "200" {
@@ -37,7 +37,7 @@ export def --env proxy [
     $env.ALL_PROXY = $env.PROXY_HTTP
     print "Proxy has been opened."
     print $env.ALL_PROXY
-    check_staus
+    check_status
   } else if $param == "unset" {
     if $git { git_unset }
     if $npm {
@@ -65,7 +65,7 @@ export def --env proxy [
       pnpm config -g get proxy | if $in == "" { "null\n" } else { $in } | print -n $"pnpm proxy = ($in)"
       pnpm config -g get https-proxy | if $in == "" { "null\n" } else { $in } | print -n $"pnpm https-proxy = ($in)"
     }
-    check_staus
+    check_status
   } else {
     help proxy
   }
