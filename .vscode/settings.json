@@ -3,6 +3,8 @@
         "LICENSE": "plain text"
     },
     "files.readonlyInclude": {
-        "LICENSE": true
+        "LICENSE": true,
+        "history.txt": true,
+        "starship.nu": true,
     }
 }

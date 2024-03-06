@@ -1,25 +1,13 @@
 # Nushell Environment Config File
 #
-# version = "0.90.1"
+# version = "0.91.0"
 
 def create_left_prompt [] {
-    let home =  $nu.home-path
-
-    # Perform tilde substitution on dir
-    # To determine if the prefix of the path matches the home dir, we split the current path into
-    # segments, and compare those with the segments of the home dir. In cases where the current dir
-    # is a parent of the home dir (e.g. `/home`, homedir is `/home/user`), this comparison will
-    # also evaluate to true. Inside the condition, we attempt to str replace `$home` with `~`.
-    # Inside the condition, either:
-    # 1. The home prefix will be replaced
-    # 2. The current dir is a parent of the home dir, so it will be uneffected by the str replace
-    let dir = (
-        if ($env.PWD | path split | zip ($home | path split) | all { $in.0 == $in.1 }) {
-            ($env.PWD | str replace $home "~")
-        } else {
-            $env.PWD
-        }
-    )
+    let dir = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
+        null => $env.PWD
+        '' => '~'
+        $relative_pwd => ([~ $relative_pwd] | path join)
+    }
 
     let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
     let separator_color = (if (is-admin) { ansi light_red_bold } else { ansi light_green_bold })
@@ -33,7 +21,7 @@ def create_right_prompt [] {
     let time_segment = ([
         (ansi reset)
         (ansi magenta)
-        (date now | format date '%x %X %p') # try to respect user's locale
+        (date now | format date '%x %X') # try to respect user's locale
     ] | str join | str replace --regex --all "([/:])" $"(ansi green)${1}(ansi magenta)" |
         str replace --regex --all "([AP]M)" $"(ansi magenta_underline)${1}")
 
@@ -101,10 +89,9 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-# Custom configs can be written in this file, including additinal PATH
-source ~/.config/nushell/custom.nu
+# To load from a custom file you can use:
+source ($nu.default-config-dir | path join 'custom.nu')
 
 # Starship (https://starship.rs/)
-$env.STARSHIP_CONFIG = ($nu.config-path | path dirname | path join "starship.toml")
-mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu
+$env.STARSHIP_CONFIG = ($nu.config-path | path dirname | path join 'starship.toml')
+starship init nu | save -f  ($nu.config-path | path dirname | path join 'starship.nu')

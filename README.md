@@ -4,15 +4,15 @@
 
 ## Prerequisites
 
-[Startship](https://starship.rs/) is required to use this config.\
-Make sure the `starship` command is ready to use in you shell.
+[Startship](https://starship.rs/) is used in conjunction with this config.\
+Make sure the `starship` command is available in you shell.
 
 ## Getting Started
 
-Windows users should clone this repository into `~/AppData/Roaming/nushell`.\
-Linux and macoS users should clone this into `~/.config/nushell`.
+Windows users should clone this repository into `~/AppData/Roaming`.\
+Linux and macoS users should clone this into `~/.config`.
 
 ## Customization
 
-Custom settings can be written in `~/.config/nushell/custom.nu`.\
-Consider starting from duplicating [template.nu](template.nu) to the target file path.
+Custom settings can be written in `./custom.nu`.\
+Start from duplicating [template.nu](./template.nu) to the target file path.
