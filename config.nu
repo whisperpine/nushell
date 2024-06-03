@@ -879,6 +879,9 @@ alias pp = pnpm
 # kubectl
 alias kc = kubectl
 
+# lazygit
+alias lg = lazygit
+
 # ----------------------------------------
 # custom commands
 # ----------------------------------------

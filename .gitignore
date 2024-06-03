@@ -1,3 +1,7 @@
+# macOS
+.DS_Store
+
+# Nushell
 /history.txt
 /custom.nu
 /starship.nu
