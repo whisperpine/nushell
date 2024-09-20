@@ -10,9 +10,12 @@ command_timeout = 1500
 disabled = true
 
 [character]
-success_symbol = '[\$](default)'
-error_symbol = '[\$](red)'
-vimcmd_symbol = '[\$](default)'
+# success_symbol = '[\$](default)'
+# error_symbol = '[\$](red)'
+# vimcmd_symbol = '[\$](default)'
+success_symbol = '[#](default)'
+error_symbol = '[#](red)'
+vimcmd_symbol = '[#](default)'
 
 [directory]
 read_only = " ro"
