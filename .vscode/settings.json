@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "LICENSE": "plain text"
+        "LICENSE": "plaintext"
     },
     "files.readonlyInclude": {
         "LICENSE": true,
