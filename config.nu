@@ -883,9 +883,6 @@ $env.config = {
 alias vim = nvim
 alias vi = nvim
 
-# pnpm
-alias pp = pnpm
-
 # kubectl
 alias kc = kubectl
 
