@@ -275,7 +275,7 @@ symbol = "helm "
 format = "[$symbol]($style)"
 
 [kubernetes]
-symbol = "kubernets "
+symbol = "kubernetes "
 format = "[$symbol]($style)"
 
 [azure]
