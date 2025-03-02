@@ -1,6 +1,6 @@
 #---------- ATTENTION ----------#
 # This file shouldn't be expected to take effect.
-# You may use it as a templete to write your own "custom.nu".
+# You may use it as a template to write your own "custom.nu".
 #---------- ATTENTION ----------#
 
 ## Press Ctrl-O to edit command line in nvim.
